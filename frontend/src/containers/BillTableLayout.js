@@ -1,7 +1,9 @@
 import React from 'react'
-import { Table } from 'antd';
+import { Table, Popconfirm } from 'antd';
 
-const columns = [
+
+export default function BillLayout(props) {
+    const columns = [
         {
             title: 'Bill Number',
             dataIndex: 'bill_no',
@@ -18,17 +20,25 @@ const columns = [
             title: 'Amount',
             dataIndex: 'amount',
             sorter: {
-            compare: (a, b) => a.amount - b.amount,
+                compare: (a, b) => a.amount - b.amount,
             },
         },
+        {
+            title: 'Delete',
+            dataIndex: 'delete',
+            render: (text, record) => (
+                props.data.length > 0
+                    ? <Popconfirm title="Delete??" onConfirm={() => props.onDelete(record.bill_no)}>
+                        <a href="javascript;">Delete</a>
+                    </Popconfirm>
+                    : null
+            )
+        }
     ];
-
-
-export default function BillLayout(props){
     return (
-        <Table 
-            columns={columns} 
-            dataSource={props.data} 
+        <Table
+            columns={columns}
+            dataSource={props.data}
         />
     )
 }

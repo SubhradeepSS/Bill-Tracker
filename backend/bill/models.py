@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Bill(models.Model):
-    bill_no = models.IntegerField()
+    bill_no = models.IntegerField(primary_key=True)
     bill_for = models.CharField(max_length=20)
     date_paid = models.DateField()
     amount = models.IntegerField()

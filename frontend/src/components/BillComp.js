@@ -46,10 +46,17 @@ export default class Bill extends React.Component {
         })
     }
 
+    handleDelete = bill_no => {
+        const bills = [...this.state.bills]
+        axios.delete(`http://127.0.0.1:8000/${bill_no}`).then(
+            this.setState({ bills: bills.filter(bill => bill.bill_no !== bill_no) })
+        )
+    }
+
     render(){
         return (
             <div>
-                <BillTableLayout data={this.state.bills}/>
+                <BillTableLayout data={this.state.bills} onDelete={this.handleDelete}/>
                 <br />
                 <h1>Add a new bill</h1>
                 <BillFormLayout onSubmit={this.handleSubmit}/>
