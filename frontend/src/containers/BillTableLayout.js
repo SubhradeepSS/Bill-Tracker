@@ -24,11 +24,11 @@ export default function BillLayout(props) {
             },
         },
         {
-            title: 'Delete',
+            title: '',
             dataIndex: 'delete',
             render: (text, record) => (
                 props.data.length > 0
-                    ? <Popconfirm title="Delete??" onConfirm={() => props.onDelete(record.bill_no)}>
+                    ? <Popconfirm title="Delete the bill??" onConfirm={() => props.onDelete(record.bill_no)}>
                         <a href="javascript;">Delete</a>
                     </Popconfirm>
                     : null
