@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, DatePicker, InputNumber } from 'antd';
 
 const layout = {
   labelCol: {
@@ -31,7 +31,7 @@ export default function BillFormLayout(props) {
             },
           ]}
         >
-          <Input name="bill_no" />
+          <InputNumber name="bill_no" />
         </Form.Item>
 
         <Form.Item
@@ -57,7 +57,7 @@ export default function BillFormLayout(props) {
             },
           ]}
         >
-          <Input name="date_paid" />
+          <DatePicker name="date_paid" />
         </Form.Item>
 
         <Form.Item
@@ -70,12 +70,12 @@ export default function BillFormLayout(props) {
             },
           ]}
         >
-          <Input name="amount" />
+          <InputNumber name="amount" />
         </Form.Item>
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            Add
+            Add/Update
           </Button>
         </Form.Item>
 

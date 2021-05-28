@@ -7,6 +7,9 @@ export default function BillLayout(props) {
         {
             title: 'Bill Number',
             dataIndex: 'bill_no',
+            sorter: {
+                compare: (a, b) => a.bill_no - b.bill_no,
+            },
         },
         {
             title: 'Bill For',
@@ -15,6 +18,9 @@ export default function BillLayout(props) {
         {
             title: 'Date Paid',
             dataIndex: 'date_paid',
+            sorter: {
+                compare: (a, b) => a.date_paid > b.date_paid,
+            },
         },
         {
             title: 'Amount',

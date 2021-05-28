@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from rest_framework import generics, mixins
+from rest_framework import generics
 
 from .models import Bill
 from .serializers import BillSerializer
@@ -10,7 +9,7 @@ class BillListView(generics.ListCreateAPIView):
     serializer_class = BillSerializer
 
 
-class BillView(generics.DestroyAPIView):
+class BillView(generics.UpdateAPIView, generics.DestroyAPIView):
     queryset = Bill.objects.all()
     serializer_class = BillSerializer
     lookup_field = 'bill_no'
